@@ -3,7 +3,7 @@ import mongoose from 'mongoose';
 import cors from 'cors';
 import cookieParser from 'cookie-parser';
 import dotenv from 'dotenv';
-
+import authRoutes from './routes/authRoutes.js'
 
 dotenv.config();
 
@@ -17,6 +17,8 @@ app.use(cors({
     methods: 'GET,POST,PUT,DELETE',
     credentials: true,
 }));
+
+app.use('/auth', authRoutes);
 
 const connectDB = async () => {
     try {
